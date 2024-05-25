@@ -1,0 +1,25 @@
+.container{
+    border: 2px solid color ( rgb(134, 47, 47) );
+  
+    border-radius: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2px;
+    position: relative;
+ 
+ }.icon{
+    font-size: 18px;
+  
+  }
+  .switcher{
+     width: 25px;
+     aspect-ratio: 1/1;
+     background-color:chocolate ;
+     border-radius: 50%;
+     position: absolute;
+     cursor: pointer;
+ 
+ 
+  
+  }
