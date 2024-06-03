@@ -56,60 +56,82 @@ function RegistrationPage() {
   };
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '90vh', backgroundColor: 'white' }}>
+    <div className="backgroundImage" style={{ 
+      backgroundImage: "url('/bg (3).png')",
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat',
+      height:'102vh'
+    }}>
       <div style={{ flex: 1 }}>
-        <h2 style={{ fontWeight: 'bold', fontFamily: 'Segoe Print', fontSize: '36px', textAlign: 'center', paddingTop: '30px' }}>Inscription</h2>
         {error && <p style={{ color: 'red', textAlign: 'center' }}>{error}</p>}
         <div style={{ display: 'flex', justifyContent: 'center', marginTop: '5px' }}>
           <div style={{
             width: '200px',
             height: '200px',
-            backgroundColor: 'white',
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center', // Centrer verticalement
-            borderRadius: '5px'
+       
           }}>
             < Image 
-            src="/test.png"
-             alt="Smart Shop" width={800} 
+            src="/logo.png"
+             alt="Smart Shop" 
+             width={600} 
              height={600}
              style={{ maxWidth: '100%', maxHeight: '100%' }} 
              />
           </div>
+          
         </div>
-        <form onSubmit={handleRegistration} style={{ maxWidth: '300px', margin: '0 auto', textAlign: 'center',paddingTop: '0px' }}>
-          <label style={{ display: 'block', marginBottom: '10px' }}>
-            Prénom:
+        <h2 style={{color:'#15006D', fontSize: '25px',fontFamily:'@SimSun-ExtB', margin:' 30px 130px',fontStyle:'italic' }}>Inscription</h2>
+       
+        <form onSubmit={handleRegistration} style={{ maxWidth: '300px', margin: '50px 50px', textAlign: 'center',paddingTop: '0px' }}>
+    
+          <div style={{display: 'block', margin: '10px 40px'}}>
+          <label >
+          Prénom:
             <input type="text" value={nom} onChange={(e) => setnom(e.target.value)}
-             style={{ width: '100%', padding: '8px', borderRadius: '5px', border: '1px solid #ccc' }} />
+             style={{ width: '100%', padding: '9px', borderRadius: '50px', border:  '1px solid #15006D' }} />
           </label>
-          <label style={{ display: 'block', marginBottom: '10px' }}>
+          <label >
             Nom:
             <input type="text" value={prenom} onChange={(e) => setprenom(e.target.value)} 
-             style={{ width: '100%', padding: '8px', borderRadius: '5px', border: '1px solid #ccc' }}/>
+             style={{ width: '100%', padding: '9px', borderRadius: '50px', border:  '1px solid #15006D' }}/>
           </label>
-          <label style={{ display: 'block', marginBottom: '10px' }}>
+          <label>
             N° de la carte de fidèlité:
             <input type="text" value={numFidelite} onChange={(e) => setnumFidelite(e.target.value)} 
-             style={{ width: '100%', padding: '8px', borderRadius: '5px', border: '1px solid #ccc' }}/>
+             style={{ width: '100%', padding: '9px', borderRadius: '50px', border:  '1px solid #15006D' }}/>
           </label>
-          <label style={{ display: 'block', marginBottom: '10px' }}>
+          <label>
             Email:
             <input type="email" value={mail} onChange={(e) => setMail(e.target.value)}
-             style={{ width: '100%', padding: '8px', borderRadius: '5px', border: '1px solid #ccc' }} />
+             style={{ width: '100%', padding: '9px', borderRadius: '50px', border:  '1px solid #15006D' }} />
           </label>
-          <label style={{ display: 'block', marginBottom: '10px' }}>
+          <label>
             Mot de passe:
             <input type="password" value={motDePasse} onChange={(e) => setmotDePasse(e.target.value)}
-              style={{ width: '100%', padding: '8px', borderRadius: '5px', border: '1px solid #ccc' }} />
+              style={{ width: '100%',  padding: '9px', borderRadius: '50px', border:  '1px solid #15006D' }} />
           </label>
-          <label style={{ display: 'block', marginBottom: '10px' }}>
+          <label>
             Confirmer le mot de passe:
             <input type="password" value={confirmmotDePasse} onChange={(e) => setConfirmmotDePasse(e.target.value)}
-              style={{ width: '100%', padding: '8px', borderRadius: '5px', border: '1px solid #ccc' }} />
+              style={{ width: '100%', padding: '9px', borderRadius: '50px', border:  '1px solid #15006D'}} />
           </label>
-          <button type="submit" style={{ backgroundColor: 'black', color: 'white', borderRadius: '50px', border: 'none', cursor: 'pointer', padding: '10px 20px' }}>S&apos;inscrire</button>
+          <button style={{ 
+      width: '120px',
+      background:'#F25D78',
+      color: 'white',
+      borderRadius: '50px', 
+      border: '2px solid #15006D', 
+      cursor: 'pointer',
+      margin: '20px 10px',
+      padding: '10px',
+      
+    }}>S&apos;inscrire</button>
+          </div>
+
         </form>
       </div>
     </div>

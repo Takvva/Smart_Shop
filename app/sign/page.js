@@ -1,9 +1,16 @@
 'use client'
 import React, { useState } from 'react';
-import Link from 'next/link';
 import {useRouter} from 'next/navigation'
 import Image from 'next/image';
 import axios from 'axios';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
 
 
 function LoginPage() {
@@ -14,8 +21,16 @@ function LoginPage() {
   const handleLogin = (e) => {
     e.preventDefault();
     // Logique de connexion à implémenter ici
-    console.log('Connexion avec le numéro de carte de fidélité:', numFidelite);
+    
+    
+    if (  !numFidelite || !motDePasse  ) {
+      setError(`Veuillez remplir le champ d'Email.`);
+      return;
+    }
 
+    
+    console.log('Connexion avec le numéro de carte de fidélité:', numFidelite);
+  
     axios.post('/api/sign',{motDePasse,numFidelite} ).then(response=>{
       console.log(response)
       if(response.data.status === 400){
@@ -32,50 +47,84 @@ function LoginPage() {
 
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '90vh',backgroundColor: 'white' }}>
-    <div style={{ flex: 1 }}>
-    <h1 style={{ fontWeight: 'bold', fontFamily: 'Segoe Print', fontSize: '36px', textAlign: 'center',paddingTop:'100px' }}>Connexion</h1>
-    <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
+    <div className="backgroundImage" style={{ 
+      backgroundImage: "url('/bg (3).png')",
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat',
+      height:'102vh'
+    }}>
+
+<div style={{ flex: 1 }}>
+        {error && <p style={{ color: 'red', textAlign: 'center' }}>{error}</p>}
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '5px' }}>
           <div style={{
             width: '200px',
             height: '200px',
-            backgroundColor: 'white',
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center', // Centrer verticalement
-            borderRadius: '5px'
+       
           }}>
+       < Image 
+            src="/logo.png"
+             alt="Smart Shop" 
+             width={600} 
+             height={600}
+             style={{ maxWidth: '100%', maxHeight: '100%' }} 
+             />
+          </div>
+          </div>
+    <h1 style={{color:'#15006D', fontSize: '25px',  textAlign: 'center',fontFamily:'@SimSun-ExtB', fontFamily:'bold',marginBottom: '20px', marginBottom: '15px',fontStyle: 'italic'  }}>Connexion</h1>
+         
+      
+      <form onSubmit={handleLogin}  style={{ maxWidth: '300px', margin: '10px 100px', textAlign: 'center',paddingTop: '0px' }}>
+      <div style={{display: 'block', margin: '80px 10px'}}>
+        <label>
 
-    <Image src="test.png"alt="Smart Shop"style={{ maxWidth: '100%', maxHeight: '100%'}}/>
-    </div>
-      </div>
-      <div>{error}</div>
-      <form onSubmit={handleLogin} style={{ maxWidth: '300px', margin: '0 auto', textAlign: 'center'}}>
-        <label style={{ display: 'block', marginBottom: '10px' }}>
           N°carte:
           <input
             type="text"
             value={numFidelite}
             onChange={(e) => setnumFidelite(e.target.value)}
-            style={{ width: '100%', padding: '10px', borderRadius: '5px', border: '1px solid #ccc' }}
+            style={{ width: '100%', padding: '9px', borderRadius: '50px', border:  '1px solid #15006D' }} 
           />
         </label>
-        <label style={{ display: 'block', marginBottom: '10px' }}>
+        <label  >
           Mot de passe :
           <input
             type="password"
             value={motDePasse}
             onChange={(e) => setmotDePasse(e.target.value)}
-            style={{ width: '100%', padding: '8px', borderRadius: '5px', border: '1px solid #ccc' }}
+            style={{ width: '100%', padding: '9px', borderRadius: '50px', border:  '1px solid #15006D' }}
           />
         </label>
-        <button type="submit" style={{backgroundColor: 'black', color: 'white',borderRadius: '50px', border: 'none', cursor: 'pointer',padding: '10px 20px'}}>Se connecter</button>
+        <button type="submit" style={{ 
+      width: '120px',
+      background:'#F25D78',
+      color: 'white',
+      borderRadius: '50px', 
+      border: '2px solid #15006D', 
+      cursor: 'pointer',
+      margin: '20px 20px',
+      padding: '10px',
+      
+    }}>connecter</button>
+    </div>
       </form>
-      <Link href="#">
-      <p style={{ color: 'gray', textDecoration: 'underline', textAlign: 'center', marginTop: '20px' }}>Mot de passe oublié ?</p>
-      </Link>
+      </div>
+      <Dialog>
+       <DialogTrigger>
+       <p style={{ color: 'gray', textDecoration: 'underline', textAlign: 'center', margin: '0px 100px' }}>Mot de passe oublié ?</p>
+       </DialogTrigger>
+       <DialogContent  style={{ border: '4px solid #F25D78', padding: '50px', borderRadius: '10px' }}>
+       <p style={{fontSize: '1.2rem',fontWeight: 'bold', color: '#5F3671'}}>Veuillez contacter notre équipe de support !</p> 
+        
+       </DialogContent>
+     </Dialog>
     </div>
-    </div>
+    
+    
     
   );
 }

@@ -19,7 +19,7 @@ model clients {
   prenom         String
   mail           String
   motDePasse     String
-  nbrePoints     Int?
+  nbrePoints     Float?
   derniereVisite DateTime?@updatedAt
   
         
@@ -27,7 +27,7 @@ model clients {
  model product {
   Date           DateTime   @id
   produit        String?
-  prix           Int?
+  prix           Float?
   imageUrl       String?
 
   
