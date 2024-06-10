@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE `clients` MODIFY `derniereVisite` DATETIME(3) NULL DEFAULT CURRENT_TIMESTAMP(3);

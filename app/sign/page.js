@@ -17,7 +17,7 @@ function LoginPage() {
   const [numFidelite, setnumFidelite] = useState('');
   const [motDePasse, setmotDePasse] = useState('');
   const [error, setError] = useState('');
-  const router = useRouter()
+  const router = useRouter();
   const handleLogin = (e) => {
     e.preventDefault();
     // Logique de connexion à implémenter ici
@@ -79,7 +79,7 @@ function LoginPage() {
          
       
       <form onSubmit={handleLogin}  style={{ maxWidth: '300px', margin: '10px 100px', textAlign: 'center',paddingTop: '0px' }}>
-      <div style={{display: 'block', margin: '80px 10px'}}>
+      <div style={{display: 'block', margin: '80px 0px'}}>
         <label>
 
           N°carte:
@@ -115,7 +115,7 @@ function LoginPage() {
       </div>
       <Dialog>
        <DialogTrigger>
-       <p style={{ color: 'gray', textDecoration: 'underline', textAlign: 'center', margin: '0px 100px' }}>Mot de passe oublié ?</p>
+       <p style={{ color: 'gray', textDecoration: 'underline', textAlign: 'center', margin: '0px 90px' }}>Mot de passe oublié ?</p>
        </DialogTrigger>
        <DialogContent  style={{ border: '4px solid #F25D78', padding: '50px', borderRadius: '10px' }}>
        <p style={{fontSize: '1.2rem',fontWeight: 'bold', color: '#5F3671'}}>Veuillez contacter notre équipe de support !</p> 

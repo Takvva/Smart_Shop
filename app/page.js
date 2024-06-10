@@ -11,7 +11,7 @@ function App() {
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',
-      height:'102vh',
+      height:'105vh',
      
     }}>
       <div style={{ display: 'flex', flexDirection: 'column', justifyContent:'center',alignItems:'center'}}>

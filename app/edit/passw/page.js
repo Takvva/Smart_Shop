@@ -2,26 +2,39 @@
 import axios from "axios";
 import React, { useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
+
 
 const ChangePassword = () => {
  
     const [motDePasse, setmotDePasse] = useState('');
+    const [numFidelite, setnumFidelite] = useState('');
     const [newPassword, setnewPassword] = useState('');
     const [confirmmotDePasse, setConfirmmotDePasse] = useState('');
     const [error, setError] = useState('');
+    const [success,setsuccess] = useState('');
+    
     const handleChangePassword = (e) => {
-
         e.preventDefault();
-      
-        if (newPassword !== confirmmotDePasse) {
+        
+        
+        const client = JSON.parse(localStorage.getItem('client'))
+        if (!client) {
+          setError('Client non trouvé');
+          return;
+      }
+       console.log(client)
+        
+       if (newPassword !== confirmmotDePasse) {
           setError('Les mots de passe ne correspondent pas');
           return;
         }
-    axios.post('/api/updateProfile',{newPassword} )
-    .then((response) => {
-        console.log('Changement de mot de passe effectué avec succès'); 
-
+        axios.post('/api/updateProfile', {
+          numFidelite: client.numFidelite,
+          newPassword: newPassword
+      })  
+        .then((response) => {
+          setsuccess('Changement de mot de passe effectué avec succès');
+        console.log(response);
         setmotDePasse('');
         setnewPassword('');
         setConfirmmotDePasse('');
@@ -29,7 +42,9 @@ const ChangePassword = () => {
     .catch((error) => {
        
         console.error('Erreur lors du changement de mot de passe :', error);
-    });
+        setsuccess('');
+    
+      });
     
   };
 
@@ -44,7 +59,7 @@ return (
       <button style={{ cursor: 'pointer', padding: '30px 10px', fontSize: '1.5rem', borderRadius: '8px', backgroundColor: '#F25D78', color: '#ffffff', border: 'none' }}>🔙</button>
       </Link>
       <div style={{ width: '300px' }}>
-        <h1 style={{ fontWeight: 'bold', fontFamily: 'Segoe Print', fontSize: '21px', textAlign: 'center', color: '#5F3671',  paddingTop:'30px' }}>Configuration de motDePasse</h1>
+        <h1 style={{fontWeight: 'bold', fontFamily: '', fontSize: '20px', textAlign: 'center', color: '#5F3671',  paddingTop:'30px' }}>Configuration de motDePasse</h1>
       </div>
 
     </div>
@@ -65,6 +80,7 @@ return (
 
 <div style={{ flex: 1 }}>
         {error && <p style={{ color: 'red', textAlign: 'center' }}>{error}</p>}
+        {success && <p style={{color: 'green',margin:'20px'}}>{success}</p>}
         <div style={{ display: 'flex', justifyContent: 'center', margin:'5px' }}>
           <div style={{
             width: '900px',
@@ -83,19 +99,11 @@ return (
     <form onSubmit={handleChangePassword}style={{ maxWidth: '400px', margin: '0px 20px', textAlign: 'center' }}>
         <div style={{display: 'block'}}>
     
-    <label>
-    <input
-      type="password"
-      value={motDePasse}
-      onChange={(e) => setmotDePasse(e.target.value)}
-      placeholder="Ancien mot de passe"
-      style={{ width: '70%', padding: '9px', borderRadius: '50px', border:  '1px solid #15006D',margin:'20px 0px' }}
-    />
-  </label>
+    
            
   <label>
     <input
-      type="text"
+      type="password"
       value={newPassword}
       onChange={(e) => setnewPassword(e.target.value)}
       placeholder="Nouveau mot de passe"
@@ -104,7 +112,7 @@ return (
   </label>
   <label>
     <input
-      type="text"
+      type="password"
       value={confirmmotDePasse}
       onChange={(e) => setConfirmmotDePasse(e.target.value)}
       placeholder="Confirmer le mot de passe"

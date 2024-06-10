@@ -61,7 +61,7 @@ function RegistrationPage() {
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',
-      height:'102vh'
+      height:'120vh'
     }}>
       <div style={{ flex: 1 }}>
         {error && <p style={{ color: 'red', textAlign: 'center' }}>{error}</p>}
@@ -77,14 +77,14 @@ function RegistrationPage() {
             < Image 
             src="/logo.png"
              alt="Smart Shop" 
-             width={600} 
+             width={1600} 
              height={600}
              style={{ maxWidth: '100%', maxHeight: '100%' }} 
              />
           </div>
           
         </div>
-        <h2 style={{color:'#15006D', fontSize: '25px',fontFamily:'@SimSun-ExtB', margin:' 30px 130px',fontStyle:'italic' }}>Inscription</h2>
+        <h2 style={{color:'#15006D', fontSize: '25px',fontFamily:'@SimSun-ExtB', margin:' 0px 110px',fontStyle:'italic' }}>Inscription</h2>
        
         <form onSubmit={handleRegistration} style={{ maxWidth: '300px', margin: '50px 50px', textAlign: 'center',paddingTop: '0px' }}>
     
@@ -100,7 +100,7 @@ function RegistrationPage() {
              style={{ width: '100%', padding: '9px', borderRadius: '50px', border:  '1px solid #15006D' }}/>
           </label>
           <label>
-            N° de la carte de fidèlité:
+           N° de la carte de fidèlité:
             <input type="text" value={numFidelite} onChange={(e) => setnumFidelite(e.target.value)} 
              style={{ width: '100%', padding: '9px', borderRadius: '50px', border:  '1px solid #15006D' }}/>
           </label>

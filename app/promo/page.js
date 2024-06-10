@@ -24,7 +24,7 @@ function PromoPage() {
       <button style={{ cursor: 'pointer', padding: '30px 10px', fontSize: '1.5rem', borderRadius: '8px', backgroundColor: '#F25D78', color: '#ffffff', border: 'none' }}>🔙</button>
       </Link>
       <div style={{ width: '100px' }}>
-        <h1 style={{ fontWeight: 'bold', fontFamily: '@SimSun-ExtB', fontSize: '17px', textAlign: 'center', color: '#5F3671',  paddingTop:'30px' }}>Les promos</h1>
+        <h1 style={{ fontWeight: 'bold', fontFamily: '@SimSun-ExtB', fontSize: '3vh', textAlign: 'center', color: '#5F3671',  margin:'20px 30px' }}>Les promotions</h1>
       </div>
 
         </div>
@@ -61,12 +61,12 @@ borderRadius:'90px',
                 return (
                   
                   <tr key={product.id || index}>
-                    <td style={{ padding: '20px 10px', border: '1px solid black' }}>{product.produit}</td>
-                    <td style={{ padding: '20px 10px', border: '1px solid black' }}>{product.prix}</td>
-                    <td style={{ padding: '20px 10px', border: '1px solid black' }}>{format(new Date(product.Date), 'dd/MM/yyyy')}</td>
-                    <td style={{ padding: '20px 10px', border: '1px solid black' }}>
-                    <div style={{ width: '80px', height: '80px', position: 'relative' }}>
-                <Image src={product.imageUrl} alt={product.produit} layout="fill" objectFit="contain" />
+                    <td style={{ padding: '10vh 0.5vw', border: '1px solid black' }}>{product.produit}</td>
+                    <td style={{ padding: '10px 0.5vw', border: '1px solid black' }}>{product.prix}</td>
+                    <td style={{ padding: '10px 0.5vw', border: '1px solid black' }}>{format(new Date(product.Date), 'dd/MM/yyyy')}</td>
+                    <td style={{ padding: '10px 0.5vw', border: '1px solid black' }}>
+                    <div style={{ width: '120px', height: '120px', position: 'relative' }}>
+                <Image src={product.imageUrl} alt={product.produit} layout='fill' objectFit="contain" />
               </div>
                     </td>
                   </tr>

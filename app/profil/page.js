@@ -17,7 +17,7 @@ import {format} from 'date-fns';
 
 
 const ProfilePage = () => {
-  const [derniereVisite, setderniereVisite] = useState(null);
+  const [derniereVisite, setderniereVisite] = useState('');
   const [numFidelite, setnumFidelite] = useState('');
   const [nbrePoints, setnbrePoints] = useState('');
   const [isOpen, setIsOpen] = useState(false);
@@ -35,7 +35,7 @@ const ProfilePage = () => {
   console.log(formattedDate);
 
 
-  const handlePoint = (e) => {
+  const handlePoint = () => {
     console.log(numFidelite)
     console.log(nbrePoints)
     const client = JSON.parse(localStorage.getItem('client'))
@@ -108,7 +108,7 @@ const ProfilePage = () => {
     }}>
            
            
-           <div style={{ display: 'flex', alignItems: 'center' }}>
+           <div style={{ display: 'flex', alignItems:'center',justifyContent:'space-between'}}>
   <Dialog>
     <DialogTrigger>
       <p onClick={handlePoint} style={{ cursor: 'pointer', color: '#5F3671', margin: '22vh 4vw', fontWeight: 'bold', fontSize: '0.8rem' }}>
@@ -116,19 +116,19 @@ const ProfilePage = () => {
       </p>
     </DialogTrigger>
     <DialogContent  style={{ border: '4px solid #F25D78', padding: '50px', borderRadius: '10px' }}>
-    <p style={{fontSize: '1.2rem',fontWeight: 'bold', color: '#5F3671'}}>Voici vos points de fidélité :</p> 
+    <p style={{fontSize: '1rem',fontWeight: 'bold', color: '#5F3671'}}>Voici vos points de fidélité :</p> 
       <div style={{ fontSize: '1.3rem',fontWeight: 'bold',margin: '0 6.9vw' }}>{nbrePoints}</div>
     </DialogContent>
   </Dialog>
 
   <Link href="/promo">
-    <p style={{ cursor: 'pointer', color: '#5F3671', fontWeight: 'bold', fontSize: '1rem', margin: '7.5vh', fontSize: '0.8rem' }}>
-      Les promos
+    <p style={{ cursor: 'pointer', color: '#5F3671', fontWeight: 'bold', margin: '40px', fontSize: '0.8rem' }}>
+    Les promotions
     </p>
   </Link>
 </div>
 
-<div style={{ display: 'flex', alignItems: 'center' }}>
+<div style={{ display: 'flex', alignItems: 'center',justifyContent:'space-between' }}>
   <Link href="/edit">
     <p style={{ cursor: 'pointer', color: '#5F3671', fontWeight: 'bold', fontSize: '0.9rem', margin: '0 15vw', fontSize: '0.8rem' }}>
       Profil
@@ -137,7 +137,7 @@ const ProfilePage = () => {
 
   <Dialog>
     <DialogTrigger>
-      <p onClick={visit} style={{ cursor: 'pointer', color: '#5F3671', fontWeight: 'bold', fontSize: '0.9rem', margin: '0 10.5vw', fontSize: '0.8rem' }}>
+      <p onClick={visit} style={{ cursor: 'pointer', color: '#5F3671', fontWeight: 'bold', fontSize: '0.8rem', margin: '0 20px' }}>
         Les dernière visites
       </p>
     </DialogTrigger>
