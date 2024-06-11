@@ -6,9 +6,6 @@ import axios from 'axios';
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
 
@@ -57,7 +54,7 @@ function LoginPage() {
 
 <div style={{ flex: 1 }}>
         {error && <p style={{ color: 'red', textAlign: 'center' }}>{error}</p>}
-        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '5px' }}>
+        <div style={{ display: 'flex', justifyContent: 'center'}}>
           <div style={{
             width: '200px',
             height: '200px',
@@ -75,7 +72,7 @@ function LoginPage() {
              />
           </div>
           </div>
-    <h1 style={{color:'#15006D', fontSize: '25px',  textAlign: 'center',fontFamily:'@SimSun-ExtB', fontFamily:'bold',marginBottom: '20px', marginBottom: '15px',fontStyle: 'italic'  }}>Connexion</h1>
+    <h1 style={{color:'#15006D', fontSize: '25px',  textAlign: 'center',fontFamily:'@SimSun-ExtB', fontFamily:'bold',fontStyle: 'italic'  }}>Connexion</h1>
          
       
       <form onSubmit={handleLogin}  style={{ maxWidth: '300px', margin: '10px 100px', textAlign: 'center',paddingTop: '0px' }}>
@@ -99,7 +96,7 @@ function LoginPage() {
             style={{ width: '100%', padding: '9px', borderRadius: '50px', border:  '1px solid #15006D' }}
           />
         </label>
-        <button type="submit" style={{ 
+        <button type='submit' style={{ 
       width: '120px',
       background:'#F25D78',
       color: 'white',

@@ -65,7 +65,7 @@ function RegistrationPage() {
     }}>
       <div style={{ flex: 1 }}>
         {error && <p style={{ color: 'red', textAlign: 'center' }}>{error}</p>}
-        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '5px' }}>
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
           <div style={{
             width: '200px',
             height: '200px',

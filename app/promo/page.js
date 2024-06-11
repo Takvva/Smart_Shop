@@ -41,11 +41,10 @@ borderRadius:'90px',
 }}>
         
    <div style={{ flex: 1 }}>
-   <div style={{ display: 'flex', justifyContent: 'center', margin:'5px' }}>
+   <div style={{ display: 'flex', justifyContent: 'center', margin:'0px' }}>
          
       
-          </div>
-          </div>
+         
         <table style={{margin:'90px 0px'}}>
           <thead style={{color: '#5F3671', fontSize: '15px',fontFamily:'@SimSun-ExtB',fontWeight:'bold'}}>
             <tr>
@@ -57,10 +56,10 @@ borderRadius:'90px',
           </thead>
           <tbody>
             {
-              productList.map((product, index) => {
+              productList.map((product) => {
                 return (
                   
-                  <tr key={product.id || index}>
+                  <tr key={product.id}>
                     <td style={{ padding: '10vh 0.5vw', border: '1px solid black' }}>{product.produit}</td>
                     <td style={{ padding: '10px 0.5vw', border: '1px solid black' }}>{product.prix}</td>
                     <td style={{ padding: '10px 0.5vw', border: '1px solid black' }}>{format(new Date(product.Date), 'dd/MM/yyyy')}</td>
@@ -78,7 +77,8 @@ borderRadius:'90px',
         </div>
         </div>
         </div>
-        
+        </div>
+        </div>
       );
       
     }

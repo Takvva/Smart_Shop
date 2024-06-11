@@ -8,9 +8,6 @@ import Image from 'next/image';
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
 import {format} from 'date-fns';
@@ -21,8 +18,6 @@ const ProfilePage = () => {
   const [numFidelite, setnumFidelite] = useState('');
   const [nbrePoints, setnbrePoints] = useState('');
   const [isOpen, setIsOpen] = useState(false);
-  const [nom, setnom] = useState('');
-  const [prenom, setprenom] = useState('');
   useEffect(() => {
     setderniereVisite(new Date());
   }, []);
